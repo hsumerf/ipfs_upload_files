@@ -21,11 +21,17 @@ def upload_file():
       file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
       file.save(file_path)
       print(file_path)
+      #lst = subprocess.call(["ipfs","add","APCO.jpg"])
+      #cmd = [ 'echo', 'arg1', 'arg2' ]
+      cmd = ["ipfs","add","APCO.jpg"]
+      output = subprocess.Popen( cmd, stdout=subprocess.PIPE ).communicate()[0]
+      output = output.decode()
+      hash = output.split(' ')[1]
+      print(output,output[1],type(output),hash)
+
       #hsh = os.system('ipfs','add',APCO.jpg)
       #print(hsh)
-      lst = os.system('ls')
-      print(lst)
-      return 'file uploaded successfully'
+      return 'file uploaded successfully and hash ' + hash
 
 
 @app.route('/hello')
