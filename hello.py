@@ -31,7 +31,7 @@ def upload_file():
 
       #hsh = os.system('ipfs','add',APCO.jpg)
       #print(hsh)
-      return 'file uploaded successfully and hash ' + hash
+      return 'file uploaded successfully and hash = ' + hash
 
 
 @app.route('/hello')
