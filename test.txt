@@ -39,12 +39,7 @@ def upload_file():
 
 @app.route('/hashedfile', methods = ['GET', 'POST'])
 def get_file():
-   if request.method == 'POST':
-       hash_value = request.form.get("hash_value")
-       subprocess.call(["ipfs","get",hash_value])
-
-
-       return 'Hello'
+    return request.form.get("hash_value")
 
 
 
